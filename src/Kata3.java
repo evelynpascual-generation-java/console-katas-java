@@ -10,10 +10,14 @@ public class Kata3 {
         do {
             System.out.println("Ingresa el precio del producto (0 para terminar)");
             input = sc.nextDouble();
-            subtotal = subtotal + input;
+
+            if (input > 0) {
+                subtotal = subtotal + input;
+            } else if (input < 0) {
+                System.out.println("Error: El precio no puede ser negativo");
+            }
 
         } while (input != 0);
-        sc.close();
 
         double iva = 0.19 * subtotal;
         double totalConIVA = subtotal + iva;
@@ -33,5 +37,6 @@ public class Kata3 {
         }
 
         System.out.println("Total a pagar: $" + String.format("%,.2f",totalFinal));
+        sc.close();
     }
 }
